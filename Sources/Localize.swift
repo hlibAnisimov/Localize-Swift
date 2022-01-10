@@ -128,7 +128,6 @@ open class Localize: NSObject {
         let selectedLanguage = availableLanguages().contains(language) ? language : defaultLanguage()
         if (selectedLanguage != currentLanguage()){
             UserDefaults.standard.set(selectedLanguage, forKey: LCLCurrentLanguageKey)
-            UserDefaults.standard.synchronize()
             NotificationCenter.default.post(name: Notification.Name(rawValue: LCLLanguageChangeNotification), object: nil)
         }
     }
